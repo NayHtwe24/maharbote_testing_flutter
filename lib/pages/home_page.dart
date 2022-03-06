@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
 
   var modVal = 0;
   var houseName = "";
+  var pickedDay = "";
 
   var isChecked = false;
 
@@ -35,7 +36,10 @@ class _HomePageState extends State<HomePage> {
   TextStyle _selectedColor(val) => TextStyle(
       color: houseName == val ? Theme.of(context).primaryColor : Colors.black);
 
-  Text _labelResultText(val) => Text(val);
+  TextStyle _pickedColor(val) => TextStyle(
+      color: pickedDay == val ? Theme.of(context).primaryColor : Colors.black);
+
+  Text _labelResultText(val) => Text(val , style: _pickedColor(val));
 
   Text _labelText(val) => Text(val, style: _selectedColor(val));
 
@@ -124,6 +128,19 @@ class _HomePageState extends State<HomePage> {
     return houses[(year - day - 1) % 7];
   }
 
+  String _checkPickedDayColor (day){
+    if(day == 7){
+      var result = 1;
+      return result.toString();
+    }else if(day == 6){
+      var result = 0;
+      return result.toString();
+    }else{
+      var result = day + 1;
+      return result.toString();
+    }
+  }
+
   Widget switchCase(modVal) {
     switch(modVal){
       case 1 :
@@ -178,6 +195,7 @@ class _HomePageState extends State<HomePage> {
                         myanmarYear = picked.year - 639;
                         modVal = myanmarYear % 7;
                         houseName = _houseResult(myanmarYear, picked.weekday);
+                        pickedDay = _checkPickedDayColor(picked.weekday);
                         selected = true;
                       });
                     }else if(pickedMonth == 4){
@@ -186,6 +204,7 @@ class _HomePageState extends State<HomePage> {
                         myanmarYear = picked.year - 639;
                         modVal = myanmarYear % 7;
                         houseName = _houseResult(myanmarYear, picked.weekday);
+                        pickedDay = _checkPickedDayColor(picked.weekday);
                         selectedDate = picked;
                         selected = true;
                       });
@@ -195,6 +214,7 @@ class _HomePageState extends State<HomePage> {
                         myanmarYear = picked.year - 638;
                         modVal = myanmarYear % 7;
                         houseName = _houseResult(myanmarYear, picked.weekday);
+                        pickedDay = _checkPickedDayColor(picked.weekday);
                         selectedDate = picked;
                         selected = true;
                       });
