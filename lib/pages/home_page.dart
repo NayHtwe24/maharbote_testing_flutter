@@ -52,9 +52,9 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(""),
+            const Text(""),
             _labelText("အဓိပတိ"),
-            Text(""),
+            const Text(""),
           ],
         ),
         Row(
@@ -88,10 +88,10 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(""),
+            const Text(""),
             Padding(padding: const EdgeInsets.all(5.0),
             child: _labelResultText(sixth.toString())),
-            Text(""),
+            const Text(""),
           ],
         ),
         Row(
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
   );
 
   String _houseResult(year, day) {
-    print(day);
+    //print(day);
     var houses = ["ဘင်္ဂ", "အထွန်း", "ရာဇ", "အဓိပတိ", "မရဏ", "သိုက်","ပုတိ"];
     return houses[(year - day - 1) % 7];
   }
@@ -145,22 +145,16 @@ class _HomePageState extends State<HomePage> {
     switch(modVal){
       case 1 :
         return _resultLayout(modVal, 4, 0, 3, 6, 2 , 5);
-        break;
       case 2 :
         return _resultLayout(modVal, 5, 1, 4, 0, 3 , 6);
-        break;
       case 3 :
         return _resultLayout(modVal, 6, 2, 5, 1, 4 , 0);
-        break;
       case 4 :
         return _resultLayout(modVal, 0, 3, 6, 2, 5 , 1);
-        break;
       case 5 :
         return _resultLayout(modVal, 1, 4, 0, 3, 6 , 2);
-        break;
       case 6 :
         return _resultLayout(modVal, 2, 5, 1, 4, 0 , 3);
-        break;
     }
     return _resultLayout(1, 4, 0, 3, 6, 2 , 5);
   }
