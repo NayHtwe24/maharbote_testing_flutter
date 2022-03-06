@@ -35,10 +35,7 @@ class _HomePageState extends State<HomePage> {
   TextStyle _selectedColor(val) => TextStyle(
       color: houseName == val ? Theme.of(context).primaryColor : Colors.black);
 
-  TextStyle _selectedResult(val) => TextStyle(
-      color: val == '0' ? Theme.of(context).primaryColor : Colors.black);
-
-  Text _labelResultText(val) => Text(val, style: _selectedResult(val));
+  Text _labelResultText(val) => Text(val);
 
   Text _labelText(val) => Text(val, style: _selectedColor(val));
 
